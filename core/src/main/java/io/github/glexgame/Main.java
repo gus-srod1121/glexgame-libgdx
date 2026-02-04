@@ -20,7 +20,7 @@ public class Main extends ApplicationAdapter {
         batch = new SpriteBatch();
         Texture texture = new Texture("player.png");
         TextureRegion image = new TextureRegion(texture);
-        player = new Player(new Vector2(0f, 0f), image, "Gus", 20f);
+        player = new Player(new Vector2(0f, 0f), image, "Gus", 150f);
 
         Gdx.input.setInputProcessor(new InputManager(player));
     }
@@ -28,7 +28,7 @@ public class Main extends ApplicationAdapter {
     @Override
     public void render() {
         float delta = Gdx.graphics.getDeltaTime();
-        angle += delta * 10f;
+        // angle += delta * 10f;
 
         player.position.x += delta * player.getSpeed() * player.velocity.x;
         player.position.y += delta * player.getSpeed() * player.velocity.y;
