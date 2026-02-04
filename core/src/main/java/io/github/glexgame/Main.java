@@ -11,7 +11,6 @@ import com.badlogic.gdx.utils.ScreenUtils;
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
 public class Main extends ApplicationAdapter {
     private SpriteBatch batch;
-    private TextureRegion image;
 
     private Player player;
     float angle = 0f;
@@ -20,16 +19,21 @@ public class Main extends ApplicationAdapter {
     public void create() {
         batch = new SpriteBatch();
         Texture texture = new Texture("player.png");
-        image = new TextureRegion(texture);
-        player = new Player(Vector2.Zero, image, "Gus", 50f);
+        TextureRegion image = new TextureRegion(texture);
+        player = new Player(new Vector2(0f, 0f), image, "Gus", 20f);
+
+        Gdx.input.setInputProcessor(new InputManager(player));
     }
 
     @Override
     public void render() {
         float delta = Gdx.graphics.getDeltaTime();
         angle += delta * 10f;
-        player.position.x += delta * player.getSpeed();
-        System.out.println(player.position.x);
+
+        player.position.x += delta * player.getSpeed() * player.velocity.x;
+        player.position.y += delta * player.getSpeed() * player.velocity.y;
+        System.out.println(player.position);
+        System.out.println(player.velocity);
 
         ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f); //fill color rgba(0.15, 0.15, 0.2, 1)
         batch.begin();
