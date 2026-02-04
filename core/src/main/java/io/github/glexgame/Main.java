@@ -31,7 +31,7 @@ public class Main extends ApplicationAdapter {
         player.position.x += delta * player.getSpeed();
         System.out.println(player.position.x);
 
-        ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f); //fill color rgba(0.15, 0.15, 0.2, 1)
+        ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f); //fill colour rgba(0.15, 0.15, 0.2, 1)
         batch.begin();
         batch.draw(
             player.sprite,
