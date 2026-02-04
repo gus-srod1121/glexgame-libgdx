@@ -1,17 +1,19 @@
 package io.github.glexgame;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 
 public class Player {
-    public final Texture sprite;
+    public final TextureRegion sprite;
     public final float size = 200f;
     public Vector2 position;
 
     private String name;
     private float speed;
 
-    public Player(Vector2 startPos, Texture sprite, String name, float speed)
+    public Player(Vector2 startPos, TextureRegion sprite, String name, float speed)
     {
         this.name = name;
         position = startPos;
