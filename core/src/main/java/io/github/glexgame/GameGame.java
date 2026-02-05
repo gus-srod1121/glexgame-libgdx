@@ -2,6 +2,7 @@ package io.github.glexgame;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 
 import java.security.InvalidParameterException;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ public class GameGame extends Game {
        Instance Variables.
      */
     private ScreenName currentScreen;
+    private AssetManager assetManager;
 
     /*
        Game Singleton.
@@ -33,7 +35,7 @@ public class GameGame extends Game {
      *
      * @return the game as a GameGame
      */
-    public static GameGame startGame() {
+    public static GameGame getGameRoot() {
         if (game == null) {
             game = new GameGame();
         }
@@ -55,9 +57,9 @@ public class GameGame extends Game {
     private Screen initScreen(ScreenName newScreenName) {
         switch (newScreenName) {
             case MAIN_MENU:
-                return new MainMenu(this);
+                return new MainMenu();
             case FOO:
-                return new Foo(this);
+                return new Foo();
             default:
                 throw new InvalidParameterException();
         }

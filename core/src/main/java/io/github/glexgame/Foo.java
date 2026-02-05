@@ -11,8 +11,8 @@ public class Foo implements Screen {
     private final GameGame game;
     private final SpriteBatch batch;
 
-    public Foo(GameGame game) {
-        this.game = game;
+    public Foo() {
+        this.game = GameGame.getGameRoot();
         this.batch = new SpriteBatch();
     }
 
@@ -20,8 +20,7 @@ public class Foo implements Screen {
     public void render(float delta) {
         ScreenUtils.clear(Color.GREEN);
         batch.begin();
-        System.out.println("Hello");
-        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             game.switchScreen(GameGame.ScreenName.MAIN_MENU);
         }
         batch.end();

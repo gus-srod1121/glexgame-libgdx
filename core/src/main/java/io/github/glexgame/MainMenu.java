@@ -11,8 +11,8 @@ public class MainMenu implements Screen {
     private final GameGame game;
     private final SpriteBatch batch;
 
-    public MainMenu(GameGame game) {
-        this.game = game;
+    public MainMenu() {
+        this.game = GameGame.getGameRoot();
         this.batch = new SpriteBatch();
     }
 
