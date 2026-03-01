@@ -30,8 +30,8 @@ public class Main extends ApplicationAdapter {
         float delta = Gdx.graphics.getDeltaTime();
         // angle += delta * 10f;
 
-        player.position.x += delta * player.getSpeed() * player.velocity.x;
-        player.position.y += delta * player.getSpeed() * player.velocity.y;
+        player.position.x += player.getSpeed() * player.velocity.x * delta;
+        player.position.y += player.getSpeed() * player.velocity.y * delta;
         System.out.println(player.position);
         System.out.println(player.velocity);
 
